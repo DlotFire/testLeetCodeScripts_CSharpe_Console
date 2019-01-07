@@ -7,19 +7,13 @@ using System.Text;
 
 public class T_Seralize
 {
-
-    // Use this for initialization
-    void Start()
+    /// <summary>
+    /// 序列化类
+    /// </summary>
+    public T_Seralize()
     {
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
     /// <summary>
     /// 测试序列化

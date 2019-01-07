@@ -4,14 +4,12 @@ using System;
 
 public class T_Binary 
 {
-
     public int FunctionGetBinaryParameter = 10;//getBinary函数参数
     public uint FunctiondHammingWeightParameter = 3;//HammingWeight函数参数
     public string str1;
     public string str2;
-
-    // Use this for initialization
-    void Start()
+    
+    public T_Binary()
     {
         //Console.WriteLine(Convert.ToString(FunctionGetBinaryParameter, 2));
 
@@ -28,13 +26,7 @@ public class T_Binary
         Console.WriteLine(Convert.ToInt32("10101", 2));
         Console.WriteLine(AddBinary(str1, str2));
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    
     /// <summary>
     /// 获取二进制数
     /// </summary>

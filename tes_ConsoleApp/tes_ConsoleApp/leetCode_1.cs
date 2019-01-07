@@ -6,16 +6,14 @@ using System.Collections.Generic;
 
 public class leetCode_1
 {
-
     public int NumbInt = 12;
     public uint NumbUint = 1230456;
     public int[] nums;
     public int[] nums2;
 
     private Stopwatch stopwatch;
-
-    // Use this for initialization
-    void Start()
+    
+    public leetCode_1()
     {
         stopwatch = new Stopwatch();
         //Console.WriteLine(Reverse(NumbInt));
@@ -27,12 +25,6 @@ public class leetCode_1
 
         //Console.WriteLineArray(PlusOne(nums));
         PritnfArray(MoveZeroes(nums));
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     /// <summary>
