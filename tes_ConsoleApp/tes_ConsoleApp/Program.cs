@@ -16,6 +16,7 @@ namespace tes_ConsoleApp
 
             new T_Binary();
             new leetCode_1();
+            new SortArray();
 
         }
 

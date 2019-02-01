@@ -8,6 +8,7 @@ namespace tes_ConsoleApp
 {
     public class SortArray
     {
+
         /*
          * 非线性时间比较类排序：
          *  通过比较来决定元素间的相对次序，由于其时间复杂度不能突破O(nlogn)，因此称为非线性时间比较类排序。
@@ -22,8 +23,10 @@ namespace tes_ConsoleApp
          */
         public SortArray()
         {
-            BubbleSort();
-            //SelectionSort();
+            SortArray_Init();
+
+            //BubbleSort(ref Globe.numbs);
+            SelectionSort(ref Globe.numbs);
             //InsertionSort();
             //ShellSort();
             //MergeSort();
@@ -34,7 +37,11 @@ namespace tes_ConsoleApp
             //RadixSort();
         }
 
+        private void SortArray_Init()
+        {
 
+        }
+        
         /*
          * 冒泡排序（Bubble Sort）
          *  冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，
@@ -51,9 +58,22 @@ namespace tes_ConsoleApp
         /// <summary>
         /// 冒泡排序
         /// </summary>
-        private void BubbleSort()
+        private void BubbleSort(ref int[] nums)
         {
+            for (int i = 0; i < nums.Length; i++)
+            {
+                for (int j = 0; j < nums.Length -1; j++)
+                {
+                    if (nums[j] > nums[j+1])
+                    {
+                        nums[j] = nums[j] ^ nums[j + 1];
+                        nums[j + 1] = nums[j] ^ nums[j + 1];
+                        nums[j] = nums[j] ^ nums[j + 1];
+                    }
+                }
+            }
 
+            Globe.PritnfArray(ref nums);
         }
 
 
@@ -82,9 +102,26 @@ namespace tes_ConsoleApp
         /// <summary>
         /// 选择排序
         /// </summary>
-        private void SelectionSort()
+        private void SelectionSort(ref int[] nums)
         {
+            int minNumbIndex,tempNumb;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                minNumbIndex = i;
+                for (int j = i+1; j < nums.Length; j++)
+                {
+                    if (nums[minNumbIndex] > nums[j])
+                    {
+                        minNumbIndex = j;
+                    }
+                }
 
+                tempNumb = nums[minNumbIndex];
+                nums[minNumbIndex] = nums[i];
+                nums[i] = tempNumb;
+            }
+
+            Globe.PritnfArray(ref nums);
         }
 
         /*

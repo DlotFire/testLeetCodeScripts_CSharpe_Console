@@ -104,7 +104,7 @@ public class T_Binary
         Console.WriteLine(2 << 4 + 2 << 5);
 
         char a = '0';
-        char b = '1';
+        //char b = '1';
         a = (char)(a ^ (3 << 4));
         Console.WriteLine(Convert.ToInt32("10101", 2));
 
