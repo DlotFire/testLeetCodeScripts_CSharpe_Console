@@ -15,9 +15,7 @@ public class leetCode_1
 
     public leetCode_1()
     {
-        //nums = new int[] { 0, 1, 0, 3, 12 };
-        nums = new int[] { 0, 0,1};
-
+        LeetCode_1_Init();
         //stopwatch = new Stopwatch();
         //Console.WriteLine(Reverse(NumbInt));
 
@@ -27,7 +25,28 @@ public class leetCode_1
         //Console.WriteLineArray(interscet(nums,nums2));
 
         //Console.WriteLineArray(PlusOne(nums));
-        PritnfArray(MoveZeroes(nums));
+        PritnfArray(MoveZeroes(nums));//!
+    }
+
+    private void LeetCode_1_Init()
+    {
+        //nums = new int[] { 0, 1, 0, 3, 12 };
+        //nums = new int[] { 0, 0, 1 };
+
+        nums = new int[] {-1278640323,349172856, 1873509219, 2086212774, 0,
+            -1001344505, -61069976, 746705870, -173131555, -1898820175,
+            802998965, -916055673, 344084770, -1664334387, -1886907515,
+            171107295, -2065649057, -1628881728, -1900147601, -342880452,
+            -2037018488, -104769833, 0, 0, 374941067, 536619007, -298730590,
+            -1594869648, 1855390876, 904830187, -809158725, -1923547142, 1340100626,
+            953054962, 1195315949, 0, 1281604841, 58893147, 2109018765, -928102085,
+            -348541385, 1222161829, -319162010, -1229679355, 635148638, 1343064576,
+            1235762604, 808863719, -1399893584, 262412042, 852755753, 2122991509, -439470997,
+            1284528791, 0, -1255542315, 1381099667, -612012457, 1158700697,
+            -1931432559, -382355048, 386876825, -410932959, -881191573,
+            2108126972, 66895034, 571651517, -807893976, 1722089493, 0 };
+
+
     }
 
     /// <summary>
@@ -218,17 +237,21 @@ public class leetCode_1
     /// <param name="nums"></param>
     private int[] MoveZeroes(int[] nums)
     {
-        for (int i = 0; i < nums.Length; i++)
+        for (int k = 0; k < nums.Length; k++)
         {
-            if (nums[i].Equals(0))
+            for (int i = 0; i < nums.Length; i++)
             {
-                for (int j = i; j < nums.Length - 1; j++)
+                if (nums[i].Equals(0))
                 {
-                    nums[j] = nums[j] ^ nums[j + 1];
-                    nums[j + 1] = nums[j] ^ nums[j + 1];
-                    nums[j] = nums[j] ^ nums[j + 1];
+                    for (int j = i; j < nums.Length - 1; j++)
+                    {
+                        nums[j] = nums[j] ^ nums[j + 1];
+                        nums[j + 1] = nums[j] ^ nums[j + 1];
+                        nums[j] = nums[j] ^ nums[j + 1];
+                    }
                 }
             }
+
         }
         return nums;
     }

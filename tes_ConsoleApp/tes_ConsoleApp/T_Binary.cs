@@ -18,7 +18,7 @@ public class T_Binary
         //Console.WriteLine(HammingWeight(FunctiondHammingWeightParameter));
 
         //Console.WriteLine(IsPowerOFtwo(FunctionGetBinaryParameter));
-        //Console.WriteLine(AddBinary(str1, str2));
+        //Console.WriteLine(AddBinary(str1, str2));//!
     }
     
     /// <summary>
@@ -97,6 +97,20 @@ public class T_Binary
     }
 
     /// <summary>
+    /// 测试进制位移
+    /// </summary>
+    private void TesShiftBinary()
+    {
+        Console.WriteLine(2 << 4 + 2 << 5);
+
+        char a = '0';
+        char b = '1';
+        a = (char)(a ^ (3 << 4));
+        Console.WriteLine(Convert.ToInt32("10101", 2));
+
+    }
+
+    /// <summary>
     /// 给定两个二进制字符串，返回他们的和（用二进制表示）
     /// </summary>
     /// <param name="a"></param>
@@ -131,19 +145,5 @@ public class T_Binary
 
         //return Convert.ToString(Convert.ToInt32(a, 2) + Convert.ToInt32(b, 2), 2);
         return new string(listChar.ToArray());
-    }
-
-    /// <summary>
-    /// 测试进制位移
-    /// </summary>
-    private void TesShiftBinary()
-    {
-        Console.WriteLine(2 << 4 + 2 << 5);
-
-        char a = '0';
-        char b = '1';
-        a = (char)(a ^ (3 << 4));
-        Console.WriteLine(Convert.ToInt32("10101", 2));
-
     }
 }
