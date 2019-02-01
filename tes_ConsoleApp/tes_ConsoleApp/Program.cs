@@ -12,7 +12,10 @@ namespace tes_ConsoleApp
         {
             //CallStartDesign();
 
-            Console.WriteLine("nothing to write....");
+            //Console.WriteLine("nothing to write....");
+
+            new T_Binary();
+            new leetCode_1();
 
         }
 

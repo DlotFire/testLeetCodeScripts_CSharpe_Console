@@ -18,13 +18,7 @@ public class T_Binary
         //Console.WriteLine(HammingWeight(FunctiondHammingWeightParameter));
 
         //Console.WriteLine(IsPowerOFtwo(FunctionGetBinaryParameter));
-        Console.WriteLine(2 << 4 + 2 << 5);
-
-        char a = '0';
-        char b = '1';
-        a = (char)(a ^ (3 << 4));
-        Console.WriteLine(Convert.ToInt32("10101", 2));
-        Console.WriteLine(AddBinary(str1, str2));
+        //Console.WriteLine(AddBinary(str1, str2));
     }
     
     /// <summary>
@@ -127,15 +121,29 @@ public class T_Binary
             //}
         }
 
-        for (int i = 0; i < listChar.Count; i++)
-        {
-            if (listChar[i] >= 50)
-            {
+        //for (int i = 0; i < listChar.Count; i++)
+        //{
+        //    if (listChar[i] >= 50)
+        //    {
 
-            }
-        }
+        //    }
+        //}
 
         //return Convert.ToString(Convert.ToInt32(a, 2) + Convert.ToInt32(b, 2), 2);
         return new string(listChar.ToArray());
+    }
+
+    /// <summary>
+    /// 测试进制位移
+    /// </summary>
+    private void TesShiftBinary()
+    {
+        Console.WriteLine(2 << 4 + 2 << 5);
+
+        char a = '0';
+        char b = '1';
+        a = (char)(a ^ (3 << 4));
+        Console.WriteLine(Convert.ToInt32("10101", 2));
+
     }
 }

@@ -11,11 +11,14 @@ public class leetCode_1
     public int[] nums;
     public int[] nums2;
 
-    private Stopwatch stopwatch;
-    
+    //private Stopwatch stopwatch;
+
     public leetCode_1()
     {
-        stopwatch = new Stopwatch();
+        //nums = new int[] { 0, 1, 0, 3, 12 };
+        nums = new int[] { 0, 0,1};
+
+        //stopwatch = new Stopwatch();
         //Console.WriteLine(Reverse(NumbInt));
 
         //Console.WriteLine(reverseBits((uint)NumbUint));
@@ -215,6 +218,18 @@ public class leetCode_1
     /// <param name="nums"></param>
     private int[] MoveZeroes(int[] nums)
     {
-        return null;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i].Equals(0))
+            {
+                for (int j = i; j < nums.Length - 1; j++)
+                {
+                    nums[j] = nums[j] ^ nums[j + 1];
+                    nums[j + 1] = nums[j] ^ nums[j + 1];
+                    nums[j] = nums[j] ^ nums[j + 1];
+                }
+            }
+        }
+        return nums;
     }
 }
