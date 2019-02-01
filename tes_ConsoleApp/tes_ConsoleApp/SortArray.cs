@@ -116,9 +116,16 @@ namespace tes_ConsoleApp
                     }
                 }
 
-                tempNumb = nums[minNumbIndex];
-                nums[minNumbIndex] = nums[i];
-                nums[i] = tempNumb;
+                //tempNumb = nums[minNumbIndex];
+                //nums[minNumbIndex] = nums[i];
+                //nums[i] = tempNumb;
+
+                if (!i.Equals(minNumbIndex))
+                {
+                    nums[i] = nums[i] ^ nums[minNumbIndex];
+                    nums[minNumbIndex] = nums[i] ^ nums[minNumbIndex];
+                    nums[i] = nums[i] ^ nums[minNumbIndex];
+                }
             }
 
             Globe.PritnfArray(ref nums);
