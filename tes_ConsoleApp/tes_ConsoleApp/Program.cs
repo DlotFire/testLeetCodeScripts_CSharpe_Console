@@ -18,6 +18,9 @@ namespace tes_ConsoleApp
             new leetCode_1();
             new SortArray();
 
+
+            Console.WriteLine("==== Program End =====");
+
         }
 
         /// <summary>

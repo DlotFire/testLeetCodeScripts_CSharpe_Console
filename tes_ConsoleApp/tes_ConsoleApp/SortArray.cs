@@ -23,6 +23,7 @@ namespace tes_ConsoleApp
          */
         public SortArray()
         {
+            Console.WriteLine("===== SortArray Construct! =====");
             SortArray_Init();
 
             //BubbleSort(ref Globe.numbs);
@@ -130,6 +131,7 @@ namespace tes_ConsoleApp
 
             Globe.PritnfArray(ref nums);
         }
+
 
         /*
          * 插入排序（Insertion Sort）

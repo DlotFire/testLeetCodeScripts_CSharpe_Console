@@ -12,6 +12,7 @@ public class T_Seralize
     /// </summary>
     public T_Seralize()
     {
+        Console.WriteLine("===== T_Seralize Construct! =====");
 
     }
 
