@@ -24,13 +24,15 @@ namespace tes_ConsoleApp
             //Console.WriteLineArray(interscet(nums,nums2));
 
             //Console.WriteLineArray(PlusOne(nums));
-            MoveZeroes(Globe.numbs);//!
+            //MoveZeroes(Globe.numbs);
+            Console.WriteLine(MaxProfit(Globe.numbs));//!
         }
 
         private void LeetCode_1_Init()
         {
-            Globe.numbs = new int[] { 0, 1, 0, 3, 12 };
+            //Globe.numbs = new int[] { 0, 1, 0, 3, 12 };
             //nums = new int[] { 0, 0, 1 };
+            Globe.numbs = new int[] { 7, 1, 5, 3, 6, 4 };
 
             //nums = new int[] {-1278640323,349172856, 1873509219, 2086212774, 0,
             //    -1001344505, -61069976, 746705870, -173131555, -1898820175,
@@ -248,6 +250,35 @@ namespace tes_ConsoleApp
             Globe.PritnfArray(ref nums);
 
             return nums;
+        }
+
+        /// <summary>
+        /// 买卖股票的最佳时机
+        /// </summary>
+        /// <param name="prices"></param>
+        /// <returns></returns>
+        private int MaxProfit(int[] prices)
+        {
+            int result = 0;
+            int soldIndex = 0;
+            for (int i = 0; i < prices.Length - 1; i++)
+            {
+                if (prices[i] == 1)
+                {
+                    soldIndex = i;
+                    break;
+                }
+            }
+
+            for (int i = soldIndex; i < prices.Length-1; i++)
+            {
+                if (prices[i] > prices[i+1])
+                {
+                    
+                }
+            }
+
+            return result;
         }
     }
 }
