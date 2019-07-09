@@ -89,7 +89,7 @@ namespace tes_ConsoleApp
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
-        private uint reverseBits(uint n)
+        private uint ReverseBits(uint n)
         {
             //  2147483648 (10000000000000000000000000000000)
             string str = Convert.ToString(n, 2);
