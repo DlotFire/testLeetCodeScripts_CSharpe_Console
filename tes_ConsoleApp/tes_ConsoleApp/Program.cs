@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,17 +11,26 @@ namespace tes_ConsoleApp
     {
         static void Main(string[] args)
         {
+            Stopwatch stopwatch = new Stopwatch();
             //CallStartDesign();
 
             //Console.WriteLine("nothing to write....");
-
+            stopwatch.Start();
             new T_Binary();
-            new leetCode_1();
             new SortArray();
+            stopwatch.Stop();
+            Console.WriteLine($"\n |-- stopWatch SortArray && T_binary:" +
+                $"{stopwatch.ElapsedMilliseconds}\n");
+            stopwatch.Reset();
 
+            stopwatch.Start();
+            new leetCode_1();
+            new leetCode_2();
+            stopwatch.Stop();            
 
             Console.WriteLine("==== Program End =====");
-
+            Console.WriteLine($"\n |-- stopWatch leetCode:{stopwatch.ElapsedMilliseconds}\n");
+            stopwatch.Reset();
         }
 
         /// <summary>

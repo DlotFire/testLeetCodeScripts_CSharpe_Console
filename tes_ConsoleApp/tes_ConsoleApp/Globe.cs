@@ -21,7 +21,21 @@ namespace tes_ConsoleApp
         /// <param name="nums"></param>
         public static void PritnfArray(ref int[] nums)
         {
-            for (int i = 0; i < nums.Length; i++)
+            PritnfArray(ref nums, nums.Length);
+        }
+
+        /// <summary>
+        /// 打印数组
+        /// </summary>
+        /// <param name="nums"></param>
+        public static void PritnfArray(ref int[] nums, int length)
+        {
+            if (nums.Length < length)
+            {
+                throw new IndexOutOfRangeException(nums.ToString());
+            }
+            Console.WriteLine($"---length: {length} , printfArray:");
+            for (int i = 0; i < length; i++)
             {
                 Console.WriteLine(nums[i]);
             }
