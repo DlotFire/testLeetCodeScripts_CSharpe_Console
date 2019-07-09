@@ -15,6 +15,7 @@ public class T_Binary
         //Console.WriteLine(Convert.ToString(FunctionGetBinaryParameter, 2));
 
         //GetBinary(FunctionGetBinaryParameter);
+        TesShiftBinary();
 
         //Console.WriteLine(HammingWeight(FunctiondHammingWeightParameter));
 
@@ -102,6 +103,8 @@ public class T_Binary
     /// </summary>
     private void TesShiftBinary()
     {
+        Console.WriteLine(2 << 1);//
+        Console.WriteLine(3 << 4);//3 * 2的4次方
         Console.WriteLine(2 << 4 + 2 << 5);
 
         char a = '0';
