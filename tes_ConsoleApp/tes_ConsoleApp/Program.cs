@@ -19,17 +19,18 @@ namespace tes_ConsoleApp
             new T_Binary();
             new SortArray();
             stopwatch.Stop();
-            Console.WriteLine($"\n |-- stopWatch SortArray && T_binary:" +
+            Console.WriteLine($" |-- stopWatch SortArray && T_binary:" +
                 $"{stopwatch.ElapsedMilliseconds}\n");
             stopwatch.Reset();
 
             stopwatch.Start();
             new leetCode_1();
             new leetCode_2();
+            new leetCode_3();
             stopwatch.Stop();            
 
-            Console.WriteLine("==== Program End =====");
-            Console.WriteLine($"\n |-- stopWatch leetCode:{stopwatch.ElapsedMilliseconds}\n");
+            Console.WriteLine("\n==== Program End =====");
+            Console.WriteLine($" |-- stopWatch leetCode:{stopwatch.ElapsedMilliseconds}\n");
             stopwatch.Reset();
         }
 

@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 namespace tes_ConsoleApp
 {
+    /// <summary>
+    /// 初级算法 - 数组1
+    /// </summary>
     public class leetCode_1
     {
         //private Stopwatch stopwatch;
@@ -25,7 +28,9 @@ namespace tes_ConsoleApp
 
             //Console.WriteLineArray(PlusOne(nums));
             //MoveZeroes(Globe.numbs);
-            Console.WriteLine(MaxProfit(Globe.numbs));//!
+            //Console.WriteLine(MaxProfit(Globe.numbs));//!
+
+            IsValidSudoku_init();
         }
 
         private void LeetCode_1_Init()
@@ -270,15 +275,82 @@ namespace tes_ConsoleApp
                 }
             }
 
-            for (int i = soldIndex; i < prices.Length-1; i++)
+            for (int i = soldIndex; i < prices.Length - 1; i++)
             {
-                if (prices[i] > prices[i+1])
+                if (prices[i] > prices[i + 1])
                 {
-                    
+
                 }
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 判断一个 9x9 的数独是否有效
+        /// </summary>
+        private void IsValidSudoku_init()
+        {
+            char[][] board = new char[][]
+            {
+                new char[]  {'5', '3', '.', '.', '7', '.', '.', '.', '.' },
+                new char[]  {'6', '.', '.', '1', '9', '5', '.', '.', '.' },
+                new char[]  {'.', '9', '8', '.', '.', '.', '.', '6', '.' },
+                new char[]  {'8', '.', '.', '.', '6', '.', '.', '.', '3' },
+                new char[]  {'4', '.', '.', '8', '.', '3', '.', '.', '1' },
+                new char[]  {'7', '.', '.', '.', '2', '.', '.', '.', '6' },
+                new char[]  {'.', '6', '.', '.', '.', '.', '2', '8', '.' },
+                new char[]  {'.', '.', '.', '4', '1', '9', '.', '.', '5' },
+                new char[]  {'.', '.', '.', '.', '8', '.', '.', '7', '9' }
+            };//不规则数组
+
+            bool bl = IsValidSudoku(ref board);
+            Console.WriteLine(bl);
+        }
+
+        /// <summary>
+        /// 判断一个 9x9 的数独是否有效(未通过)
+        /// </summary>
+        /// <param name="board"></param>
+        /// <returns></returns>
+        private bool IsValidSudoku(ref char[][] board)
+        {
+            HashSet<char> arow = new HashSet<char>();
+            HashSet<char> column = new HashSet<char>();
+            char value = '1';
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    
+
+                    value = board[i + j * 3][0];
+                    if (value == '.')
+                    {
+                        continue;
+                    }
+                }
+            }
+
+            //for (int i = 0; i < board.Length; i++)
+            //{
+            //    HashSet<char> rankAarry = new HashSet<char>();
+            //    for (int j = 0; j < board[i].Length; j++)
+            //    {
+            //        if (board[i][j] == '.')
+            //        {
+            //            continue;
+            //        }
+            //        if (rankAarry.Contains(board[i][j]))
+            //        {
+            //            return false;
+            //        }
+            //        rankAarry.Add(board[i][j]);
+            //        //Console.Write(board[i][j]);
+            //    }
+            //    //Console.Write('\n');
+            //}
+            return true;
         }
     }
 }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace tes_ConsoleApp
 {
+    /// <summary>
+    /// 初级算法 - 数组2
+    /// </summary>
     class leetCode_2
     {
         int[] numsArray;
