@@ -49,17 +49,7 @@ namespace tes_ConsoleApp
 
             return length;
         }
-
-        /// <summary>
-        /// 从排序数组中删除重复项
-        /// </summary>
-        /// <param name="nums"></param>
-        /// <returns></returns>
-        private int RemoveDuplicates_newArray(ref int[] nums)
-        {
-            return 0;
-        }
-
+        
         /// <summary>
         /// 从排序数组中删除重复项 -list处理 (通过)
         /// </summary>
