@@ -12,8 +12,6 @@ namespace tes_ConsoleApp
     /// </summary>
     public class leetCode_1
     {
-        //private Stopwatch stopwatch;
-
         public leetCode_1()
         {
             Console.WriteLine("===== LeetCode_1 Construct! =====");
@@ -30,7 +28,8 @@ namespace tes_ConsoleApp
             //MoveZeroes(Globe.numbs);
             //Console.WriteLine(MaxProfit(Globe.numbs));//!
 
-            IsValidSudoku_init();
+            //IsValidSudoku_init();
+            MaxProfit_1_init();
         }
 
         private void LeetCode_1_Init()
@@ -295,32 +294,46 @@ namespace tes_ConsoleApp
             return nums;
         }
 
+        private void MaxProfit_1_init()
+        {
+            //int[] prices = new int[] { 7, 1, 5, 3, 6, 4 };
+            int[] prices = new int[] { 2, 4, 1 };
+            //int[] prices = new int[] { 7, 6, 4, 3, 1 };
+
+            int result = MaxProfit_1(ref prices);
+            Console.WriteLine(result);
+        }
+
         /// <summary>
-        /// 买卖股票的最佳时机(未通过)
+        /// 买卖一支股票（只交易一次），计算所能获取的最大利润（通过,1288ms）
         /// </summary>
         /// <param name="prices"></param>
         /// <returns></returns>
-        private int MaxProfit(int[] prices)
+        private int MaxProfit_1(ref int[] prices)
         {
+            int leng = prices.Length;
+            if (leng < 1)
+            {
+                return 0;
+            }
             int result = 0;
-            int soldIndex = 0;
-            for (int i = 0; i < prices.Length - 1; i++)
+            int minValue = prices[0];
+            //int maxValue = 0;
+            for (int i = 0; i < leng; i++)
             {
-                if (prices[i] == 1)
+                if (prices[i] <= minValue)
                 {
-                    soldIndex = i;
-                    break;
+                    minValue = prices[i];
+                    for (int j = i; j < leng; j++)
+                    {
+                        if (prices[j] - minValue >= result)
+                        {
+                            result = prices[j] - minValue;
+                        }
+                    }
                 }
-            }
-
-            for (int i = soldIndex; i < prices.Length - 1; i++)
-            {
-                if (prices[i] > prices[i + 1])
-                {
-
-                }
-            }
-
+            }            
+            
             return result;
         }
 
