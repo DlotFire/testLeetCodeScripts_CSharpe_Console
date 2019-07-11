@@ -137,7 +137,45 @@ namespace tes_ConsoleApp
         }
 
         /// <summary>
-        /// 找出那个只出现了一次的元素
+        /// 判断一个整数数组是否存在重复元素（通过）
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        private bool ContainsDuplicate(int[] nums)
+        {
+            //         List<int> listNum = new List<int>();
+            //         for(int i = 0;i < nums.Length;i++)
+            //         {
+            //             if (listNum.Contains(nums[i]))
+            //                 return true;
+            //             else
+            //                 listNum.Add(nums[i]);
+
+            //         }
+            //         return false;
+
+            // for(int i = 0;i < nums.Length;i++)
+            // {
+            //     for(int j = i+1; j<nums.Length;j++)
+            //     {
+            //         if(nums[i] == nums[j])
+            //             return true;
+            //     }
+            // }
+            // return false;
+            Array.Sort(nums);
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i] == nums[i + 1])
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 找出那个只出现了一次的元素（通过）
         /// </summary>
         /// <param name="nums"></param>
         /// <returns></returns>
@@ -159,12 +197,12 @@ namespace tes_ConsoleApp
         }
 
         /// <summary>
-        /// 计算两个数组的交集
+        /// 计算两个数组的交集（通过）
         /// </summary>
         /// <param name="nums1"></param>
         /// <param name="nums2"></param>
         /// <returns></returns>
-        private int[] interscet(int[] nums1, int[] nums2)
+        private int[] Interscet(int[] nums1, int[] nums2)
         {
             List<int> nums1List = new List<int>(nums1.Length < nums2.Length ? nums1 : nums2);
             List<int> nums2List = new List<int>(nums1.Length < nums2.Length ? nums2 : nums1);
@@ -187,7 +225,7 @@ namespace tes_ConsoleApp
         }
 
         /// <summary>
-        /// 数组加1
+        /// 数组加1（通过）
         /// </summary>
         /// <param name="digits"></param>
         /// <returns></returns>
@@ -226,7 +264,7 @@ namespace tes_ConsoleApp
         }
 
         /// <summary>
-        /// 移动零
+        /// 移动零 (通过)
         /// </summary>
         /// <param name="nums"></param>
         private int[] MoveZeroes(int[] nums)
@@ -287,7 +325,7 @@ namespace tes_ConsoleApp
         }
 
         /// <summary>
-        /// 判断一个 9x9 的数独是否有效
+        /// 判断一个 9x9 的数独是否有效 - 初始数据
         /// </summary>
         private void IsValidSudoku_init()
         {
