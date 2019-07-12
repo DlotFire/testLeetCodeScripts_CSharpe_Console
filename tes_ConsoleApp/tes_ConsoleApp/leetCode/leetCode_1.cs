@@ -55,7 +55,7 @@ namespace tes_ConsoleApp
         }
 
         /// <summary>
-        /// 32位整数反转
+        /// 32位整数反转（通过,68ms）
         /// </summary>
         /// <param name="x"></param>
         /// <returns></returns>
