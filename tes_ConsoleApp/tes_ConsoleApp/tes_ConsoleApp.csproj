@@ -47,6 +47,7 @@
     <Compile Include="leetCode\leetCode_1.cs" />
     <Compile Include="leetCode\leetCode_2.cs" />
     <Compile Include="leetCode\leetCode_3.cs" />
+    <Compile Include="leetCode\leetCode_6.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortArray.cs" />

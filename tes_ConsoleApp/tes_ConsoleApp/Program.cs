@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tes_ConsoleApp
 {
@@ -24,15 +22,28 @@ namespace tes_ConsoleApp
             stopwatch.Reset();
 
             stopwatch.Start();
-            new leetCode_1();
-            new leetCode_2();
-            new leetCode_3();
-            stopwatch.Stop();            
+            //new leetCode_1();
+            //new leetCode_2();
+            //new leetCode_3();
+            //new leetCode_6();
+            Type[] types = Assembly.GetAssembly(typeof(Program)).GetTypes();
+            string typeName;
+            for (int i = 0; i < types.Length; i++)
+            {
+                typeName = types[i].Name;
+                Console.WriteLine($"\n======== {typeName} ========");
+                if (typeName.Contains("leetCode"))
+                {
+                    types[i].GetConstructor(BindingFlags.CreateInstance | BindingFlags.Public
+                        ,null,new Type[] { },null).Invoke(null);
+                }
+            }
+            stopwatch.Stop();
 
             Console.WriteLine("\n==== Program End =====");
             Console.WriteLine($" |-- stopWatch leetCode:{stopwatch.ElapsedMilliseconds}\n");
             stopwatch.Reset();
         }
-        
+
     }
 }
