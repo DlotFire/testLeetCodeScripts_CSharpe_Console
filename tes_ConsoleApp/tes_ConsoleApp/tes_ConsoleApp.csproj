@@ -56,11 +56,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\DesignMethod\DesignMethod.csproj">
-      <Project>{eadd02c1-97d4-469f-8c33-b52f289cb603}</Project>
-      <Name>DesignMethod</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,14 +33,6 @@ namespace tes_ConsoleApp
             Console.WriteLine($" |-- stopWatch leetCode:{stopwatch.ElapsedMilliseconds}\n");
             stopwatch.Reset();
         }
-
-        /// <summary>
-        /// 执行23种设计模式中的一种
-        /// </summary>
-        static void CallStartDesign()
-        {
-            DesignMethod.StartDesign design = new DesignMethod.StartDesign();
-            design.Go();
-        }
+        
     }
 }
