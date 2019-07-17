@@ -13,8 +13,6 @@ namespace tes_ConsoleApp
     {
         public leetCode_3()
         {
-            Console.WriteLine("===== LeetCode_3 Construct! =====");
-
             //ReverseString_init();
             FirstUniqChar_init();
         }

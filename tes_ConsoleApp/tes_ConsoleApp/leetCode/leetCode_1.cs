@@ -14,7 +14,6 @@ namespace tes_ConsoleApp
     {
         public leetCode_1()
         {
-            Console.WriteLine("===== LeetCode_1 Construct! =====");
             LeetCode_1_Init();
             //stopwatch = new Stopwatch();
             //Console.WriteLine(Reverse(NumbInt));

@@ -11,8 +11,6 @@ namespace tes_ConsoleApp
         int[] numsArray;
         public leetCode_2()
         {
-            Console.WriteLine("===== LeetCode_2 Construct! =====");
-
             numsArray = new int[10] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
             //numsArray = new int[] {1,1,1,2,2,2,3,4,
             //    0, 0, 1, 1, 1, 2, 2, 3, 3, 4,

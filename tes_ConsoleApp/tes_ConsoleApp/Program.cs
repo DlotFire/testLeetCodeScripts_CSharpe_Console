@@ -31,11 +31,10 @@ namespace tes_ConsoleApp
             for (int i = 0; i < types.Length; i++)
             {
                 typeName = types[i].Name;
-                Console.WriteLine($"\n======== {typeName} ========");
                 if (typeName.Contains("leetCode"))
                 {
-                    types[i].GetConstructor(BindingFlags.CreateInstance | BindingFlags.Public
-                        ,null,new Type[] { },null).Invoke(null);
+                    Console.WriteLine($"\n======== {typeName} Construct! ========");
+                    types[i].GetConstructor(new Type[0]).Invoke(null);
                 }
             }
             stopwatch.Stop();

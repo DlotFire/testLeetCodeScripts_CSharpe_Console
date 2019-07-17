@@ -13,8 +13,6 @@ namespace tes_ConsoleApp
     {
         public leetCode_6()
         {
-            Console.WriteLine("===== LeetCode_6 Construct! =====");
-
             BinarySearch_1_init();
         }
 
