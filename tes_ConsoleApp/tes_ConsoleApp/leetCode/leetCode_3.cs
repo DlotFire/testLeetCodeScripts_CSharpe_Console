@@ -91,14 +91,13 @@ namespace tes_ConsoleApp
             //string s = "loveleetcode";
             //string s = "aadadaad";
             string s = "";
-            //string s = Globe.Instance.FileReadLongValue("Resources/LeetCode_3_longStr.txt");
+            //string s = Globe.Instance.FileReadLongValue("Resources/LeetCode_3_longStr.txt");//一个长达31713的字符
             
             Console.WriteLine(FirstUniqChar_1(ref s));
         }
 
         /// <summary>
-        /// 寻找第一个不重复的字符
-        /// (大部分通过，但是有一个长达31713的字符串超时了，没通过)
+        /// 寻找第一个不重复的字符（通过）
         /// </summary>
         /// <param name="s"></param>
         /// <returns>返回它的索引。如果不存在，则返回 -1</returns>
