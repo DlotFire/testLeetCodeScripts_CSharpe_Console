@@ -33,7 +33,7 @@ namespace tes_ConsoleApp
             //resluat = RemoveDuplicates_list(ref numsArray);//1200ms
             //resluat = RemoveDuplicates_hashSet(ref numsArray); //592ms
 
-            Globe.PritnfArray(ref numsArray, resluat);
+            Globe.Instance.PritnfArray(ref numsArray, resluat);
         }
 
         /// <summary>

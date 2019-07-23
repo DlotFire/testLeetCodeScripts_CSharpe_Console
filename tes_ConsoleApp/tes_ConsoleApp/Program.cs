@@ -22,10 +22,6 @@ namespace tes_ConsoleApp
             stopwatch.Reset();
 
             stopwatch.Start();
-            //new leetCode_1();
-            //new leetCode_2();
-            //new leetCode_3();
-            //new leetCode_6();
             Type[] types = Assembly.GetAssembly(typeof(Program)).GetTypes();
             string typeName;
             for (int i = 0; i < types.Length; i++)

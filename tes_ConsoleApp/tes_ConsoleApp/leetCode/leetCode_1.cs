@@ -35,7 +35,7 @@ namespace tes_ConsoleApp
         {
             //Globe.numbs = new int[] { 0, 1, 0, 3, 12 };
             //nums = new int[] { 0, 0, 1 };
-            Globe.numbs = new int[] { 7, 1, 5, 3, 6, 4 };
+            Globe.Instance.numbs = new int[] { 7, 1, 5, 3, 6, 4 };
 
             //nums = new int[] {-1278640323,349172856, 1873509219, 2086212774, 0,
             //    -1001344505, -61069976, 746705870, -173131555, -1898820175,
@@ -288,7 +288,7 @@ namespace tes_ConsoleApp
                 }
             }
 
-            Globe.PritnfArray(ref nums);
+            Globe.Instance.PritnfArray(ref nums);
 
             return nums;
         }

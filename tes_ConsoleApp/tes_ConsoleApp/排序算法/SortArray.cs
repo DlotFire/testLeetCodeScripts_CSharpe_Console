@@ -27,7 +27,7 @@ namespace tes_ConsoleApp
             SortArray_Init();
 
             //BubbleSort(ref Globe.numbs);
-            SelectionSort(ref Globe.numbs);
+            SelectionSort(ref Globe.Instance.numbs);
             //InsertionSort();
             //ShellSort();
             //MergeSort();
@@ -74,7 +74,7 @@ namespace tes_ConsoleApp
                 }
             }
 
-            Globe.PritnfArray(ref nums);
+            Globe.Instance.PritnfArray(ref nums);
         }
 
 
@@ -129,7 +129,7 @@ namespace tes_ConsoleApp
                 }
             }
 
-            Globe.PritnfArray(ref nums);
+            Globe.Instance.PritnfArray(ref nums);
         }
 
 
