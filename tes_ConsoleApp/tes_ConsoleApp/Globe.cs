@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,20 +60,25 @@ namespace tes_ConsoleApp
         /// </summary>
         public  string FileReadLongValue(string SubPath)
         {
-            string value = null;
-
-            return value;
+            FileStream fileStream = new FileStream(Path.Combine(GetCurrentPath(), SubPath), FileMode.Open);
+            if (fileStream == null)
+            {
+                return null;
+            }
+            byte[] bytes = new byte[fileStream.Length];
+            fileStream.Read(bytes, 0, (int)fileStream.Length);
+            //string value = Encoding.ASCII.GetString(bytes);
+            return Encoding.ASCII.GetString(bytes);
         }
 
         /// <summary>
-        /// 获取当前工程路径
+        /// 获取当前工程路径(到/bin的上一级)
         /// </summary>
         /// <returns></returns>
         public string GetCurrentPath()
         {
-            string currentPath = Environment.CurrentDirectory;
-
-            return currentPath;
+            //string currentPath = Environment.CurrentDirectory.Replace(@"bin\Debug", "");
+            return Environment.CurrentDirectory.Replace(@"bin\Debug", ""); 
         }
     }
 }

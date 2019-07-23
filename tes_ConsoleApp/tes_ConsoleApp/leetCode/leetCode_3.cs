@@ -15,7 +15,6 @@ namespace tes_ConsoleApp
         {
             //ReverseString_init();
             FirstUniqChar_init();
-            Console.WriteLine(Globe.Instance.GetCurrentPath());
         }
 
         /// <summary>
@@ -91,9 +90,9 @@ namespace tes_ConsoleApp
             //string s = "leetcode";
             //string s = "loveleetcode";
             //string s = "aadadaad";
-            //string s = "";
-            string s = Globe.Instance.FileReadLongValue("Resources/LeetCode_3_longStr.txt");
-
+            string s = "";
+            //string s = Globe.Instance.FileReadLongValue("Resources/LeetCode_3_longStr.txt");
+            
             Console.WriteLine(FirstUniqChar_1(ref s));
         }
 
