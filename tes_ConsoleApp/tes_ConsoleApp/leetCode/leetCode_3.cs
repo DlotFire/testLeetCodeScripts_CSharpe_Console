@@ -14,7 +14,9 @@ namespace tes_ConsoleApp
         public leetCode_3()
         {
             //ReverseString_init();
-            FirstUniqChar_init();
+            //FirstUniqChar_init();
+
+            IsPalindrome_init();
         }
 
         /// <summary>
@@ -53,7 +55,7 @@ namespace tes_ConsoleApp
                 s[i] ^= s[charLeng - i];
             }
         }
-        
+
         /// <summary>
         /// 反转字符串中的元音字母 (通过,232ms)
         /// </summary>
@@ -62,7 +64,7 @@ namespace tes_ConsoleApp
         {
             List<int> index = new List<int>();
             List<char> value = new List<char>();
-            HashSet<char> vowels = 
+            HashSet<char> vowels =
                 new HashSet<char>() { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
             for (int i = 0; i < s.Length; i++)
             {
@@ -92,7 +94,7 @@ namespace tes_ConsoleApp
             //string s = "aadadaad";
             string s = "";
             //string s = Globe.Instance.FileReadLongValue("Resources/LeetCode_3_longStr.txt");//一个长达31713的字符
-            
+
             Console.WriteLine(FirstUniqChar_1(ref s));
         }
 
@@ -137,6 +139,60 @@ namespace tes_ConsoleApp
                 }
             }
             return UniqIndex;
+        }
+
+        /// <summary>
+        /// 验证它是否是回文串,只考虑字母和数字字符（通过）
+        /// </summary>
+        private void IsPalindrome_init()
+        {
+            string s;
+            //s = "A man, a plan, a canal: Panama";//true
+            //s = "race a car";//false
+            //s = "12344321";//true
+            s = "abb";//false
+
+            Console.WriteLine(IsPalindrome(ref s));
+        }
+
+        /// <summary>
+        /// 验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写（通过）
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        private bool IsPalindrome(ref string s)
+        {
+            char[] cha = s.ToUpper().ToCharArray();
+            List<char> chaList = new List<char>();
+            char chaValue;
+            for (int i = 0; i < s.Length; i++)
+            {
+                chaValue = cha[i];
+                if (chaValue < 48 || chaValue > 90)
+                {
+                    continue;
+                }
+                if (chaValue > 57 && chaValue < 65)
+                {
+                    continue;
+                }
+
+                chaList.Add(cha[i]);
+            }
+
+            int len = chaList.Count / 2;
+            bool eventNums = chaList.Count % 2 == 0;
+            int offes = eventNums ? 1 : 0;
+            int count = eventNums ? len : len + 1;
+            for (int i = 0; i < count; i++)
+            {
+                if (chaList[len + i] != chaList[len - offes - i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
         
     }
