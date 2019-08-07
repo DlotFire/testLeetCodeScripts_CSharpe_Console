@@ -16,7 +16,9 @@ namespace tes_ConsoleApp
             //ReverseString_init();
             //FirstUniqChar_init();
 
-            IsPalindrome_init();
+            //IsPalindrome_init();
+
+            IsAnagram_Init();
         }
 
         /// <summary>
@@ -85,7 +87,7 @@ namespace tes_ConsoleApp
         }
 
         /// <summary>
-        /// 寻找第一个不重复的字符（未通过）
+        /// 寻找第一个不重复的字符（通过）
         /// </summary>
         private void FirstUniqChar_init()
         {
@@ -194,6 +196,57 @@ namespace tes_ConsoleApp
 
             return true;
         }
-        
+
+        /// <summary>
+        /// 判断 t 是否是 s 的字母异位词（通过）
+        /// </summary>
+        private void IsAnagram_Init()
+        {
+            string s, t;
+            s = "anagram"; t = "nagaram";//true
+            //s = "rat"; t = "car";//false
+            //s = ""; t = "";//true;
+            Console.WriteLine(IsAnagram(ref s, ref t));
+        }
+
+        /// <summary>
+        /// 判断 t 是否是 s 的字母异位词(通过)
+        ///   数量、种类相同，排列不同
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        private bool IsAnagram(ref string s,ref string t)
+        {
+            if (s.Length != t.Length)
+                return false;
+
+            bool isAnagr = true;
+            bool sameWordOnbit = true;
+
+            byte[] DictS = new byte[256];
+            Byte[] DictT = new byte[256];
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                DictS[s[i]]++;
+                DictT[t[i]]++;
+
+                if (s[i] == t[i] && !sameWordOnbit)
+                {
+                    sameWordOnbit = true;
+                }
+            }
+            
+            for (int i = 0; i < DictS.Length; i++)
+            {
+                if (DictS[i] != DictT[i])
+                {
+                    isAnagr = false;
+                }
+            }
+
+            return isAnagr & sameWordOnbit;
+        }
     }
 }
