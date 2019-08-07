@@ -18,7 +18,8 @@ namespace tes_ConsoleApp
 
             //IsPalindrome_init();
 
-            IsAnagram_Init();
+            //IsAnagram_Init();
+            MyAtoi_init();
         }
 
         /// <summary>
@@ -216,7 +217,7 @@ namespace tes_ConsoleApp
         /// <param name="s"></param>
         /// <param name="t"></param>
         /// <returns></returns>
-        private bool IsAnagram(ref string s,ref string t)
+        private bool IsAnagram(ref string s, ref string t)
         {
             if (s.Length != t.Length)
                 return false;
@@ -237,7 +238,7 @@ namespace tes_ConsoleApp
                     sameWordOnbit = true;
                 }
             }
-            
+
             for (int i = 0; i < DictS.Length; i++)
             {
                 if (DictS[i] != DictT[i])
@@ -247,6 +248,76 @@ namespace tes_ConsoleApp
             }
 
             return isAnagr & sameWordOnbit;
+        }
+
+        private void MyAtoi_init()
+        {
+            string s;
+            //s = "42";
+            //s = "   -42";
+            //s = "4193 with words";
+            //s = "words and 987";//0
+            //s = "-91283472332";//-2147483648
+            s = "+-2";//0
+
+            Console.WriteLine(MyAtoi(ref s));
+        }
+
+        /// <summary>
+        /// 实现一个atoi函数，将字符串转换成整数（通过）
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public int MyAtoi(ref string str)
+        {
+            double result = 0;
+            bool positive = true;
+            char cha;
+            for (int i = 0; i < str.Length; i++)
+            {
+                cha = str[i];
+                if (cha == 32)
+                {
+                    continue;
+                }
+                else if (cha == '-' || cha == '+' || (str[i] >= 48 && str[i] <= 57))
+                {
+                    positive = !(cha == '-');
+                    if (cha == '-' || cha == '+')
+                    {
+                        i++;
+                        if (i >= str.Length)
+                        {
+                            break;
+                        }
+                    }
+                    while (str[i] >= 48 && str[i] <= 57)
+                    {
+                        result *= 10;
+                        result += (str[i] - 48);
+                        i++;
+                        if (i >= str.Length)
+                        {
+                            break;
+                        }
+                    }
+                    break;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (positive)
+            {
+                return result >= int.MaxValue ? int.MaxValue : (int)result;
+            }
+            else
+            {
+                return result <= int.MinValue ? int.MinValue : (int)result * -1;
+            }
+
         }
     }
 }
