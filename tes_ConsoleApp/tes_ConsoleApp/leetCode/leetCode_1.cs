@@ -14,7 +14,7 @@ namespace tes_ConsoleApp
     {
         public leetCode_1()
         {
-            LeetCode_1_Init();
+            //LeetCode_1_Init();
             //stopwatch = new Stopwatch();
             //Console.WriteLine(Reverse(NumbInt));
 
@@ -28,7 +28,9 @@ namespace tes_ConsoleApp
             //Console.WriteLine(MaxProfit(Globe.numbs));//!
 
             //IsValidSudoku_init();
-            MaxProfit_1_init();
+
+            //MaxProfit_1_init();
+            MaxProfit_2_init();
         }
 
         private void LeetCode_1_Init()
@@ -331,9 +333,86 @@ namespace tes_ConsoleApp
                         }
                     }
                 }
-            }            
-            
+            }
+
             return result;
+        }
+
+        private void MaxProfit_2_init()
+        {
+            int[] array;
+            array = new int[] { 7, 1, 5, 3, 6, 4 };//7
+            //array = new int[] { 1, 2, 3, 4, 5 };//4
+            //array = new int[] { 7, 6, 4, 3, 1 };//0
+            //array = new int[] { 1, 2 };//1
+
+            Console.WriteLine(MaxProfit_2(ref array));
+        }
+
+        /// <summary>
+        /// 买卖一支股票（交易多次），计算所能获取的最大利润（通过）
+        /// </summary>
+        /// <param name="prices"></param>
+        /// <returns></returns>
+        private int MaxProfit_2(ref int[] prices)
+        {
+            int len = prices.Length;
+            if (len <= 0)
+            {
+                return 0;
+            }
+
+            int reslut = 0;
+            int buyValue = prices[0];
+            for (int i = 1; i < len; i++)
+            {
+                if (prices[i] > prices[i - 1])
+                {
+                    buyValue = prices[i - 1];
+                    for (int j = i; j < len; j++)
+                    {
+                        if (j < len - 1)
+                        {
+                            if (prices[j] > prices[j + 1])
+                            {
+                                reslut += prices[j] - buyValue;
+                                i = j + 1;
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            reslut += prices[j] - buyValue;
+                            i = j;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return reslut;
+        }
+
+        /// <summary>
+        /// 寻找最小的值的索引
+        /// </summary>
+        /// <param name="searchIndex">开始寻找的索引</param>
+        /// <param name="prices"></param>
+        /// <returns>数组最小值的索引</returns>
+        private int FindMinValue(int searchIndex, ref int[] prices)
+        {
+            int minIndex = searchIndex;
+            int minValue = prices[searchIndex];
+            for (int i = minIndex + 1; i < prices.Length; i++)
+            {
+                if (prices[i] < minValue)
+                {
+                    minIndex = i;
+                    minValue = prices[i];
+                }
+            }
+
+            return minIndex;
         }
 
         /// <summary>
@@ -372,7 +451,7 @@ namespace tes_ConsoleApp
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    
+
 
                     value = board[i + j * 3][0];
                     if (value == '.')
