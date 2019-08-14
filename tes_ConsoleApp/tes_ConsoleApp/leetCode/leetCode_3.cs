@@ -19,7 +19,9 @@ namespace tes_ConsoleApp
             //IsPalindrome_init();
 
             //IsAnagram_Init();
-            MyAtoi_init();
+            //MyAtoi_init();
+
+            StrStr_init();
         }
 
         /// <summary>
@@ -268,7 +270,7 @@ namespace tes_ConsoleApp
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public int MyAtoi(ref string str)
+        private int MyAtoi(ref string str)
         {
             double result = 0;
             bool positive = true;
@@ -318,6 +320,76 @@ namespace tes_ConsoleApp
                 return result <= int.MinValue ? int.MinValue : (int)result * -1;
             }
 
+        }
+
+        private void StrStr_init()
+        {
+            string haystack, needle;
+            haystack = "hello"; needle = "ll";//2
+            //haystack = "aaaaa"; needle = "bba";//-1
+            //haystack = "aaa"; needle = "aaaa";//-1
+            //haystack = "a"; needle = "a";//0
+            //haystack = "aaa"; needle = "a";//0
+            //haystack = "mississippi"; needle = "pi";//9
+            //haystack = "mississippi"; needle = "sipp";//6
+            haystack = "babbbbbabb"; needle = "bbab";//5
+            //haystack = "mississippi"; needle = "issipi";
+            //haystack = "mississippi"; needle = "issip";//4
+
+            Console.WriteLine(StrStr(ref haystack, ref needle));
+        }
+
+        /// <summary>
+        /// 在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回-1（通过）
+        /// </summary>
+        /// <param name="haystack"></param>
+        /// <param name="needle"></param>
+        /// <returns></returns>
+        private int StrStr(ref string haystack,ref string needle)
+        {
+            if (needle.Length < 1)
+            {
+                return 0;
+            }
+
+            if (haystack.Length < needle.Length)
+            {
+                return -1;
+            }
+
+            int needleLeng = haystack.Length - needle.Length;
+            bool oddNumb = needle.Length % 2 != 0;//奇数
+            bool isContinue = false;
+
+            for (int i = 0; i < haystack.Length; i++)
+            {
+                if (i > needleLeng)
+                {
+                    break;
+                }
+
+                if (haystack[i] == needle[0])
+                {
+                    for (int j = 0; j < needle.Length; j++)
+                    {
+                        if (haystack[i + j] != needle[j])
+                        {
+                            isContinue = true;
+                            break;
+                        }
+                        isContinue = false;
+                    }
+                    
+                    if (isContinue)
+                    {
+                        continue;
+                    }
+
+                    return i;
+                }
+            }
+
+            return -1;
         }
     }
 }
