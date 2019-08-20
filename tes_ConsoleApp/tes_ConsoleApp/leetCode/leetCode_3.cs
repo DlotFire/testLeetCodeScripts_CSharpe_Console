@@ -23,7 +23,9 @@ namespace tes_ConsoleApp
 
             //StrStr_init();
 
-            CountAndSay_init();
+            //CountAndSay_init();
+
+            LongestCommonPrefix_init();
         }
 
         /// <summary>
@@ -451,5 +453,61 @@ namespace tes_ConsoleApp
             return result;
         }
 
+        private void LongestCommonPrefix_init()
+        {
+            string[] strs =
+                //new string[] { "flower", "flow", "flight" };//fl
+            //new string[] { "dog", "racecar", "car" };//""
+            new string[0];
+
+            Console.WriteLine(LongestCommonPrefix(ref strs));
+        }
+
+        /// <summary>
+        /// 查找字符串数组中的最长公共前缀（通过,144ms）
+        /// </summary>
+        /// <param name="strs"></param>
+        /// <returns></returns>
+        public string LongestCommonPrefix(ref string[] strs)
+        {
+            if (strs.Length < 1)
+            {
+                return "";
+            }
+            List<char> resultList = new List<char>();
+            int outIndex = 0;
+            char c = '0';
+
+            while (outIndex >= 0)
+            {
+                if (strs[0].Length <= outIndex)
+                {
+                    break;
+                }
+                c = strs[0][outIndex];
+                for (int i = 0; i < strs.Length; i++)
+                {
+                    if (strs[i].Length < 1 || outIndex >= strs[i].Length)
+                    {
+                        outIndex = -3;
+                        break;
+                    }
+                    if (strs[i][outIndex] != c)
+                    {
+                        outIndex = -3;
+                        break;
+                    }
+                }
+
+                if (outIndex >= 0)
+                {
+                    resultList.Add(c);
+                }
+
+                outIndex++;
+            }
+
+            return new string(resultList.ToArray());
+        }
     }
 }
