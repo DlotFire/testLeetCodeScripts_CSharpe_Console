@@ -27,7 +27,7 @@ namespace tes_ConsoleApp
             for (int i = 0; i < types.Length; i++)
             {
                 typeName = types[i].Name;
-                if (typeName.Contains("leetCode"))
+                if (typeName.Contains("Code"))
                 {
                     Console.WriteLine($"\n======== {typeName} Construct! ========");
                     types[i].GetConstructor(new Type[0]).Invoke(null);

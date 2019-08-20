@@ -51,6 +51,7 @@
     <Compile Include="leetCode\leetCode_6.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="randomCode\randomCode_1.cs" />
     <Compile Include="排序算法\SortArray.cs" />
     <Compile Include="T_Binary.cs" />
     <Compile Include="T_Seralize.cs" />

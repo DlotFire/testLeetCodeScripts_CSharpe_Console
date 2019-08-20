@@ -17,7 +17,7 @@ namespace tes_ConsoleApp.leetCode
 
             //DeleteNode_init();
 
-            PrintAllListNode();
+            //PrintAllListNode();
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace tes_ConsoleApp.leetCode
             }
         }
 
-        public void DeleteNode_init()
+        private void DeleteNode_init()
         {
             headValue = new int[] { 4, 5, 1, 9 };
             InitListNodes(headValue);
@@ -73,7 +73,7 @@ namespace tes_ConsoleApp.leetCode
         /// 删除链表中的某个节点(非leetCode)
         /// </summary>
         /// <param name="node"></param>
-        public void DeleteNode(ListNode node)
+        private void DeleteNode(ListNode node)
         {
             ListNode eachNode = head;
             while (true)
@@ -93,6 +93,14 @@ namespace tes_ConsoleApp.leetCode
             }
         }
 
+        private void RemoveNthFromEnd_init()
+        {
 
+        }
+
+        private ListNode RemoveNthFromEnd(ListNode head, int n)
+        {
+            return null;
+        }
     }
 }

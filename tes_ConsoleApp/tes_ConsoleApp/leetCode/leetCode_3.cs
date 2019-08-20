@@ -506,5 +506,26 @@ namespace tes_ConsoleApp
 
             return new string(resultList.ToArray());
         }
+
+        public string DefangIPaddr()
+        {
+            string address = "";
+            List<char> chaList = new List<char>();
+            for (int i = 0; i < address.Length; i++)
+            {
+                if (address[i] == '.')
+                {
+                    chaList.Add('[');
+                    chaList.Add('.');
+                    chaList.Add(']');
+                }
+                else
+                {
+                    chaList.Add(address[i]);
+                }
+            }
+
+            return new string(chaList.ToArray());
+        }
     }
 }
