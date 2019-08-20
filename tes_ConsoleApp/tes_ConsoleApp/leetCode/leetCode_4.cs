@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace tes_ConsoleApp
+namespace tes_ConsoleApp.leetCode
 {
     /// <summary>
-    /// 排序与搜索1
+    /// 链表
     /// </summary>
-    class leetCode_6
+    class leetCode_4
     {
-        public leetCode_6()
+        public leetCode_4()
         {
 
         }
+
 
     }
 }
