@@ -8,15 +8,15 @@ namespace tes_ConsoleApp.leetCode
     /// </summary>
     class leetCode_4
     {
-        private ListNode NodeHead;
-        private int[] head;
+        private ListNode head;
+        private int[] headValue;
 
         public leetCode_4()
         {
-            int[] head = new int[] { 4, 5, 1, 9 };
+            headValue = new int[] { 4, 5, 1, 9 };
 
+            //DeleteNode_init();
 
-            InitListNodes(head);
             PrintAllListNode();
         }
 
@@ -36,7 +36,7 @@ namespace tes_ConsoleApp.leetCode
         private void InitListNodes(int[] values)
         {
             ListNode LastNode = new ListNode(values[0]);
-            NodeHead = LastNode;
+            head = LastNode;
             for (int i = 1; i < values.Length; i++)
             {
                 ListNode node = new ListNode(values[i]);
@@ -50,7 +50,7 @@ namespace tes_ConsoleApp.leetCode
         /// </summary>
         private void PrintAllListNode()
         {
-            ListNode node = NodeHead;
+            ListNode node = head;
             while (true)
             {
                 Console.WriteLine(node.val);
@@ -62,7 +62,36 @@ namespace tes_ConsoleApp.leetCode
             }
         }
 
+        public void DeleteNode_init()
+        {
+            headValue = new int[] { 4, 5, 1, 9 };
+            InitListNodes(headValue);
+            DeleteNode(new ListNode(5));
+        }
 
+        /// <summary>
+        /// 删除链表中的某个节点(非leetCode)
+        /// </summary>
+        /// <param name="node"></param>
+        public void DeleteNode(ListNode node)
+        {
+            ListNode eachNode = head;
+            while (true)
+            {
+                if (eachNode.next != null)
+                {
+                    if (eachNode.next.val == node.val)
+                    {
+                        eachNode.next = eachNode.next.next;
+                    }
+                    eachNode = eachNode.next;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
 
 
     }
