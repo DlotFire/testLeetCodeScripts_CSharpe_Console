@@ -21,7 +21,9 @@ namespace tes_ConsoleApp
             //IsAnagram_Init();
             //MyAtoi_init();
 
-            StrStr_init();
+            //StrStr_init();
+
+            CountAndSay_init();
         }
 
         /// <summary>
@@ -391,5 +393,63 @@ namespace tes_ConsoleApp
 
             return -1;
         }
+
+        private void CountAndSay_init()
+        {
+            int num = 0;
+            num = 1;//1
+            //num = 2;//11
+            //num = 3;//21
+            //num = 4;//1211
+            //num = 5;//111221
+
+            Console.WriteLine(CountAndSay(ref num));
+        }
+
+        /// <summary>
+        /// 按照其中的整数的顺序进行报数，得到下一个数（通过,120ms）
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        private string CountAndSay(ref int n)
+        {
+            char[] chaArray = new char[1] {'1'};
+            char[] recordArray = new char[1];
+            char c = '0';
+            int cNums = 0;
+            int recordIndex = 0;
+            int newCapacity = 0;
+
+            for (int i = 1; i < n; i++)
+            {
+                c = chaArray[0];
+                cNums = 0;
+                recordIndex = 0;
+                newCapacity = chaArray.Length * 2;
+                recordArray = new char[newCapacity];
+
+                for (int j = 0; j < chaArray.Length; j++)
+                {
+                    if (c == chaArray[j])
+                    {
+                        cNums++;
+                    }
+                    else
+                    {
+                        cNums = 1;
+                        c = chaArray[j];
+                        recordIndex += 2;
+                    }
+                    recordArray[recordIndex] = (char)(cNums + 48);
+                    recordArray[recordIndex + 1] = chaArray[j];
+                }
+                chaArray = new char[recordIndex + 2];
+                Array.Copy(recordArray, chaArray, recordIndex + 2);
+            }
+
+            string result = new string(chaArray);
+            return result;
+        }
+
     }
 }
