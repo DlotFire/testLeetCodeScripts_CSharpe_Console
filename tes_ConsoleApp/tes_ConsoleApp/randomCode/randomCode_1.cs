@@ -91,7 +91,7 @@ namespace tes_ConsoleApp.randomCode
         }
 
         /// <summary>
-        /// 唯一摩尔斯密码词
+        /// 唯一摩尔斯密码词(通过)
         /// </summary>
         /// <param name="words"></param>
         /// <returns></returns>
