@@ -24,10 +24,10 @@ namespace tes_ConsoleApp
             //MoveZeroes(Globe.numbs);
             //Console.WriteLine(MaxProfit(Globe.numbs));//!
 
-            //IsValidSudoku_init();
+            IsValidSudoku_init();
 
             //MaxProfit_1_init();
-            MaxProfit_2_init();
+            //MaxProfit_2_init();
         }
 
         private void LeetCode_1_Init()
@@ -417,21 +417,20 @@ namespace tes_ConsoleApp
         /// </summary>
         private void IsValidSudoku_init()
         {
-            char[][] board = new char[][]
+            char[,] cha = new char[9, 9]
             {
-                new char[]  {'5', '3', '.', '.', '7', '.', '.', '.', '.' },
-                new char[]  {'6', '.', '.', '1', '9', '5', '.', '.', '.' },
-                new char[]  {'.', '9', '8', '.', '.', '.', '.', '6', '.' },
-                new char[]  {'8', '.', '.', '.', '6', '.', '.', '.', '3' },
-                new char[]  {'4', '.', '.', '8', '.', '3', '.', '.', '1' },
-                new char[]  {'7', '.', '.', '.', '2', '.', '.', '.', '6' },
-                new char[]  {'.', '6', '.', '.', '.', '.', '2', '8', '.' },
-                new char[]  {'.', '.', '.', '4', '1', '9', '.', '.', '5' },
-                new char[]  {'.', '.', '.', '.', '8', '.', '.', '7', '9' }
-            };//不规则数组
+                 {'5', '3', '.', '.', '7', '.', '.', '.', '.' },
+                 {'6', '.', '.', '1', '9', '5', '.', '.', '.' },
+                 {'.', '9', '8', '.', '.', '.', '.', '6', '.' },
+                 {'8', '.', '.', '.', '6', '.', '.', '.', '3' },
+                 {'4', '.', '.', '8', '.', '3', '.', '.', '1' },
+                 {'7', '.', '.', '.', '2', '.', '.', '.', '6' },
+                 {'.', '6', '.', '.', '.', '.', '2', '8', '.' },
+                 {'.', '.', '.', '4', '1', '9', '.', '.', '5' },
+                 {'.', '.', '.', '.', '8', '.', '.', '7', '9' }
+            };
 
-            bool bl = IsValidSudoku(ref board);
-            Console.WriteLine(bl);
+            Console.WriteLine(IsValidSudoku(ref cha));
         }
 
         /// <summary>
@@ -439,44 +438,18 @@ namespace tes_ConsoleApp
         /// </summary>
         /// <param name="board"></param>
         /// <returns></returns>
-        private bool IsValidSudoku(ref char[][] board)
+        private bool IsValidSudoku(ref char[,] board)
         {
-            HashSet<char> arow = new HashSet<char>();
-            HashSet<char> column = new HashSet<char>();
-            char value = '1';
-            for (int i = 0; i < 3; i++)
+            bool sameValue = false;
+            for (int i = 0; i < 9; i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < 9; j++)
                 {
 
-
-                    value = board[i + j * 3][0];
-                    if (value == '.')
-                    {
-                        continue;
-                    }
                 }
             }
 
-            //for (int i = 0; i < board.Length; i++)
-            //{
-            //    HashSet<char> rankAarry = new HashSet<char>();
-            //    for (int j = 0; j < board[i].Length; j++)
-            //    {
-            //        if (board[i][j] == '.')
-            //        {
-            //            continue;
-            //        }
-            //        if (rankAarry.Contains(board[i][j]))
-            //        {
-            //            return false;
-            //        }
-            //        rankAarry.Add(board[i][j]);
-            //        //Console.Write(board[i][j]);
-            //    }
-            //    //Console.Write('\n');
-            //}
-            return true;
+            return sameValue;
         }
     }
 }
