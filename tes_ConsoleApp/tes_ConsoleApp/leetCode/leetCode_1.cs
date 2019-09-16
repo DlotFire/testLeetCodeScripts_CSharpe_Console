@@ -24,7 +24,7 @@ namespace tes_ConsoleApp
             //MoveZeroes(Globe.numbs);
             //Console.WriteLine(MaxProfit(Globe.numbs));//!
 
-            IsValidSudoku_init();
+            //IsValidSudoku_init();
 
             //MaxProfit_1_init();
             //MaxProfit_2_init();
@@ -417,39 +417,102 @@ namespace tes_ConsoleApp
         /// </summary>
         private void IsValidSudoku_init()
         {
-            char[,] cha = new char[9, 9]
+            char[][] board = new char[][]
             {
-                 {'5', '3', '.', '.', '7', '.', '.', '.', '.' },
-                 {'6', '.', '.', '1', '9', '5', '.', '.', '.' },
-                 {'.', '9', '8', '.', '.', '.', '.', '6', '.' },
-                 {'8', '.', '.', '.', '6', '.', '.', '.', '3' },
-                 {'4', '.', '.', '8', '.', '3', '.', '.', '1' },
-                 {'7', '.', '.', '.', '2', '.', '.', '.', '6' },
-                 {'.', '6', '.', '.', '.', '.', '2', '8', '.' },
-                 {'.', '.', '.', '4', '1', '9', '.', '.', '5' },
-                 {'.', '.', '.', '.', '8', '.', '.', '7', '9' }
-            };
+                new char[]  {'5', '3', '.', '.', '7', '.', '.', '.', '.' },
+                new char[]  {'6', '.', '.', '1', '9', '5', '.', '.', '.' },
+                new char[]  {'.', '9', '8', '.', '.', '.', '.', '6', '.' },
+                new char[]  {'8', '.', '.', '.', '6', '.', '.', '.', '3' },
+                new char[]  {'4', '.', '.', '8', '.', '3', '.', '.', '1' },
+                new char[]  {'7', '.', '.', '.', '2', '.', '.', '.', '6' },
+                new char[]  {'.', '6', '.', '.', '.', '.', '2', '8', '.' },
+                new char[]  {'.', '.', '.', '4', '1', '9', '.', '.', '5' },
+                new char[]  {'.', '.', '.', '.', '8', '.', '.', '7', '9' }
+            };//不规则数组
 
-            Console.WriteLine(IsValidSudoku(ref cha));
+            //Console.WriteLine(board.LongLength);
+            Console.WriteLine(IsValidSudoku(ref board));
         }
 
         /// <summary>
-        /// 判断一个 9x9 的数独是否有效(未通过)
+        /// 判断一个 9x9 的数独是否有效(通过,176 ms)
         /// </summary>
         /// <param name="board"></param>
         /// <returns></returns>
-        private bool IsValidSudoku(ref char[,] board)
+        private bool IsValidSudoku(ref char[][] board)
         {
-            bool sameValue = false;
+            HashSet<char> hashCha = new HashSet<char>();
             for (int i = 0; i < 9; i++)
             {
+                hashCha.Clear();
                 for (int j = 0; j < 9; j++)
                 {
+                    if (board[i][j] == '.')
+                    {
+                        continue;
+                    }
 
+                    if (hashCha.Contains(board[i][j]))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        hashCha.Add(board[i][j]);
+                    }
                 }
             }
 
-            return sameValue;
+            for (int j = 0; j < 9; j++)
+            {
+                hashCha.Clear();
+                for (int i = 0; i < 9; i++)
+                {
+                    if (board[i][j] == '.')
+                    {
+                        continue;
+                    }
+
+                    if (hashCha.Contains(board[i][j]))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        hashCha.Add(board[i][j]);
+                    }
+                }
+            }
+
+            for (int v = 0; v < 3; v++)
+            {
+                for (int h = 0; h < 3; h++)
+                {
+                    hashCha.Clear();
+                    for (int i = v * 3; i < 3 + v * 3; i++)
+                    {
+                        for (int j = h * 3; j < 3 + h * 3; j++)
+                        {
+                            if (board[i][j] == '.')
+                            {
+                                continue;
+                            }
+
+                            if (hashCha.Contains(board[i][j]))
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                hashCha.Add(board[i][j]);
+                            }
+
+                        }
+                    }
+                }
+            }
+            
+            return true;
         }
     }
 }
