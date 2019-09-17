@@ -9,15 +9,11 @@ namespace tes_ConsoleApp.leetCode
     class leetCode_4
     {
         private ListNode head;
-        private int[] headValue;
 
         public leetCode_4()
         {
-            headValue = new int[] { 4, 5, 1, 9 };
-
             //DeleteNode_init();
-
-            //PrintAllListNode();
+            
         }
 
         /// <summary>
@@ -33,7 +29,7 @@ namespace tes_ConsoleApp.leetCode
         /// <summary>
         /// 初始化一个链表
         /// </summary>
-        private void InitListNodes(int[] values)
+        private ListNode InitListNodes(ref int[] values)
         {
             ListNode LastNode = new ListNode(values[0]);
             head = LastNode;
@@ -43,14 +39,15 @@ namespace tes_ConsoleApp.leetCode
                 LastNode.next = node;
                 LastNode = node;
             }
+
+            return head;
         }
 
         /// <summary>
         /// 遍历链表
         /// </summary>
-        private void PrintAllListNode()
+        private void PrintAllListNode(ref ListNode node)
         {
-            ListNode node = head;
             while (true)
             {
                 Console.WriteLine(node.val);
@@ -64,13 +61,13 @@ namespace tes_ConsoleApp.leetCode
 
         private void DeleteNode_init()
         {
-            headValue = new int[] { 4, 5, 1, 9 };
-            InitListNodes(headValue);
+            int[] headValue = new int[] { 4, 5, 1, 9 };
+            InitListNodes(ref headValue);
             DeleteNode(new ListNode(5));
         }
 
         /// <summary>
-        /// 删除链表中的某个节点(非leetCode)
+        /// 删除链表中的某个节点（通过）
         /// </summary>
         /// <param name="node"></param>
         private void DeleteNode(ListNode node)
@@ -95,12 +92,32 @@ namespace tes_ConsoleApp.leetCode
 
         private void RemoveNthFromEnd_init()
         {
-
+            int[] values = new int[] { 1, 2, 3, 4, 5 };
+            ListNode node = InitListNodes(ref values);
+            ListNode result = RemoveNthFromEnd(node, 2);
+            PrintAllListNode(ref result);
         }
 
+        /// <summary>
+        /// 删除链表的倒数第 n 个节点，并且返回链表的头结点（未通过）
+        /// </summary>
+        /// <param name="head"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
         private ListNode RemoveNthFromEnd(ListNode head, int n)
         {
-            return null;
+            ListNode next = head;
+            int endValue = 0;
+            while (true)
+            {
+                if (next.next == null)
+                {
+                    break;
+                }
+                next = next.next;
+                endValue++;
+            }
+            return head;
         }
     }
 }

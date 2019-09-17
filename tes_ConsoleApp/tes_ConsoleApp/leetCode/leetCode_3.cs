@@ -22,7 +22,7 @@ namespace tes_ConsoleApp
 
             //CountAndSay_init();
 
-            LongestCommonPrefix_init();
+            //LongestCommonPrefix_init();
         }
 
         /// <summary>
@@ -453,9 +453,9 @@ namespace tes_ConsoleApp
         private void LongestCommonPrefix_init()
         {
             string[] strs =
-                //new string[] { "flower", "flow", "flight" };//fl
-            //new string[] { "dog", "racecar", "car" };//""
-            new string[0];
+                new string[] { "flower", "flow", "flight" };//fl
+                //new string[] { "dog", "racecar", "car" };//""
+                //new string[0];
 
             Console.WriteLine(LongestCommonPrefix(ref strs));
         }
