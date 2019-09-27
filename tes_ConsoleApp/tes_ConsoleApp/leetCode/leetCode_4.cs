@@ -97,15 +97,15 @@ namespace tes_ConsoleApp.leetCode
         private void RemoveNthFromEnd_init()
         {
             int[] values =
-                //new int[] { 1, 2, 3, 4, 5 };
-                new int[] { 1, 2 };
+                new int[] { 1, 2, 3, 4, 5 };
+                //new int[] { 1, 2 };
             ListNode node = InitListNodes(ref values);
             ListNode result = RemoveNthFromEnd(node, 2);
             PrintAllListNode(ref result);
         }
 
         /// <summary>
-        /// 删除链表的倒数第 n 个节点，并且返回链表的头结点（未通过）
+        /// 删除链表的倒数第 n 个节点，并且返回链表的头结点（通过，104ms）
         /// </summary>
         /// <param name="head"></param>
         /// <param name="n"></param>
@@ -118,33 +118,40 @@ namespace tes_ConsoleApp.leetCode
             }
 
             ListNode next = head;
-            int endValue = 0;
+            ListNode indexNode = head;
+            int countNode = 0;
             while (true)
             {
+                ++countNode;
+
                 if (next.next == null)
                 {
                     break;
                 }
                 next = next.next;
-                endValue++;
+
+                if (countNode > n)
+                {
+                    indexNode = indexNode.next;
+                }
             }
 
-            next = head;
-            endValue -= n;
-            for (int i = 0; i < endValue; i++)
+            if (n == 1)
             {
-                next = next.next;
+                indexNode.next = null;
+                return head;
             }
-            
-            if (next.next.next != null)
+
+            if (countNode == n)
             {
-                next.next = next.next.next;
+                return indexNode.next;
             }
             else
             {
-                next.next = null;
+                indexNode.next = indexNode.next.next;
             }
-
+            
+            
             return head;
         }
     }
