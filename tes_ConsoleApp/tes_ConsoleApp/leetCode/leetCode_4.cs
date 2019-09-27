@@ -13,7 +13,7 @@ namespace tes_ConsoleApp.leetCode
         public leetCode_4()
         {
             //DeleteNode_init();
-            
+            RemoveNthFromEnd_init();
         }
 
         /// <summary>
@@ -48,6 +48,10 @@ namespace tes_ConsoleApp.leetCode
         /// </summary>
         private void PrintAllListNode(ref ListNode node)
         {
+            if (node == null)
+            {
+                return;
+            }
             while (true)
             {
                 Console.WriteLine(node.val);
@@ -92,7 +96,9 @@ namespace tes_ConsoleApp.leetCode
 
         private void RemoveNthFromEnd_init()
         {
-            int[] values = new int[] { 1, 2, 3, 4, 5 };
+            int[] values =
+                //new int[] { 1, 2, 3, 4, 5 };
+                new int[] { 1, 2 };
             ListNode node = InitListNodes(ref values);
             ListNode result = RemoveNthFromEnd(node, 2);
             PrintAllListNode(ref result);
@@ -106,6 +112,11 @@ namespace tes_ConsoleApp.leetCode
         /// <returns></returns>
         private ListNode RemoveNthFromEnd(ListNode head, int n)
         {
+            if (head.next == null && n == 1)
+            {
+                return null;
+            }
+
             ListNode next = head;
             int endValue = 0;
             while (true)
@@ -117,6 +128,23 @@ namespace tes_ConsoleApp.leetCode
                 next = next.next;
                 endValue++;
             }
+
+            next = head;
+            endValue -= n;
+            for (int i = 0; i < endValue; i++)
+            {
+                next = next.next;
+            }
+            
+            if (next.next.next != null)
+            {
+                next.next = next.next.next;
+            }
+            else
+            {
+                next.next = null;
+            }
+
             return head;
         }
     }
