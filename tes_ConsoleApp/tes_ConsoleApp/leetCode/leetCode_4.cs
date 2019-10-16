@@ -8,12 +8,13 @@ namespace tes_ConsoleApp.leetCode
     /// </summary>
     class leetCode_4
     {
-        private ListNode head;
+        private ListNode _head;
 
         public leetCode_4()
         {
             //DeleteNode_init();
-            RemoveNthFromEnd_init();
+            //RemoveNthFromEnd_init();
+            ReverseList_init();
         }
 
         /// <summary>
@@ -32,7 +33,7 @@ namespace tes_ConsoleApp.leetCode
         private ListNode InitListNodes(ref int[] values)
         {
             ListNode LastNode = new ListNode(values[0]);
-            head = LastNode;
+            _head = LastNode;
             for (int i = 1; i < values.Length; i++)
             {
                 ListNode node = new ListNode(values[i]);
@@ -40,7 +41,7 @@ namespace tes_ConsoleApp.leetCode
                 LastNode = node;
             }
 
-            return head;
+            return _head;
         }
 
         /// <summary>
@@ -76,7 +77,7 @@ namespace tes_ConsoleApp.leetCode
         /// <param name="node"></param>
         private void DeleteNode(ListNode node)
         {
-            ListNode eachNode = head;
+            ListNode eachNode = _head;
             while (true)
             {
                 if (eachNode.next != null)
@@ -98,7 +99,7 @@ namespace tes_ConsoleApp.leetCode
         {
             int[] values =
                 new int[] { 1, 2, 3, 4, 5 };
-                //new int[] { 1, 2 };
+            //new int[] { 1, 2 };
             ListNode node = InitListNodes(ref values);
             ListNode result = RemoveNthFromEnd(node, 2);
             PrintAllListNode(ref result);
@@ -150,8 +151,41 @@ namespace tes_ConsoleApp.leetCode
             {
                 indexNode.next = indexNode.next.next;
             }
-            
-            
+
+
+            return head;
+        }
+
+        private void ReverseList_init()
+        {
+            int[] values = new int[] { 1, 2, 3, 4, 5 };
+
+            ListNode head = InitListNodes(ref values);
+            head = ReverseList(head);
+            PrintAllListNode(ref head);
+        }
+
+        /// <summary>
+        /// 反转链表（通过，112ms）
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
+        private ListNode ReverseList(ListNode head)
+        {
+            if (head == null)
+            {
+                return null;
+            }
+
+            if (head.next != null)
+            {
+                ListNode bottomNode = ReverseList(head.next);
+                head.next.next = head;
+                head.next = null;
+                return bottomNode;
+
+            }
+
             return head;
         }
     }
